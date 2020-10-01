@@ -5,7 +5,7 @@ import wikipedia
 class voicePrint:
     def __init__(self):
         self.voice = r.Recognizer()
-
+        #ok
         
     
     def set_Microphone(self,index):

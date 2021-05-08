@@ -5,9 +5,7 @@ import wikipedia
 class voicePrint:
     def __init__(self):
         self.voice = r.Recognizer()
-        #ok
         
-    
     def set_Microphone(self,index):
         self.mic = r.Microphone(device_index = index)
         
@@ -16,33 +14,20 @@ class voicePrint:
                 self.voice.adjust_for_ambient_noise(source,duration= 0.6)
                 print("say something")
                 self.audio = self.voice.listen(source)
-           
-            
+               
     def display(self):
-        
         self.text = self.voice.recognize_google((self.audio))
         return(self.text)
 
     def indexfind(self):
         return(self.mic.list_microphone_names())
-
-        
-    def textChecker(self):
-        
+      
+    def textChecker(self): 
         try:
             self.text_Data = self.text
         except:
             self.text_data = "sorry but i am not understanding"
         
-        #remember you can change the language from here
-        #this is changing the text language to english 
-    
-    def language(self,lan=None):
-        if(lan == None):    
-            self.language = "en"
-        else:
-            self.language = lan
-
     def playaudio(self,textSpeaker):
         engine = pyttsx3.init()
         en_voice_id = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-GB_HAZEL_11.0"
@@ -60,13 +45,17 @@ class voicePrint:
 
     def wiki(self,search):
         return(wikipedia.summary(search, sentences=2))
-
-
         
 
-#t=voicePrint()
-#t.set_Microphone(2)
-#t.mic_Listen()
+t=voicePrint()
+
+# Asking for language input
+language = input("If you need english press enter or enter the language.")
+if language == "":
+    t.language = 'eng'
+else:
+    t.language = language
     
-        
+t.set_Microphone(2)
+t.mic_Listen()
 

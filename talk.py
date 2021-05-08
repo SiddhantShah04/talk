@@ -47,15 +47,17 @@ class voicePrint:
         return(wikipedia.summary(search, sentences=2))
         
 
-t=voicePrint()
-
-# Asking for language input
-language = input("If you need english press enter or enter the language.")
-if language == "":
-    t.language = 'eng'
-else:
-    t.language = language
+if __name__ == "main":
     
-t.set_Microphone(2)
-t.mic_Listen()
+    t=voicePrint()
+
+    # Asking for language input
+    language = input("If you need english press enter or enter the language.")
+    if language == "":
+        t.language = 'eng'
+    else:
+        t.language = language
+
+    t.set_Microphone(2)
+    t.mic_Listen()
 

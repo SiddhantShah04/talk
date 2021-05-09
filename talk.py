@@ -49,15 +49,15 @@ class voicePrint:
 
 if __name__ == "main":
     
-    t=voicePrint()
+    talk = voicePrint()
 
     # Asking for language input
     language = input("If you need english press enter or enter the language.")
-    if language == "":
-        t.language = 'eng'
+    if language:
+        talk.language = language
     else:
-        t.language = language
-
-    t.set_Microphone(2)
-    t.mic_Listen()
+        talk.language = 'eng'
+       
+    talk.set_Microphone(2)
+    talk.mic_Listen()
 
